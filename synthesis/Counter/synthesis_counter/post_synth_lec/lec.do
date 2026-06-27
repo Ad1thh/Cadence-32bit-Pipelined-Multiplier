@@ -1,0 +1,3 @@
+read library -Both -Replace -sensitive -Statetable -Liberty /home/installs/digital/90nm/dig/lib/slow.lib -nooptimize
+read design /home/workshop03/simulation/synthesis/post_synth_lec/counter.v -Verilog -Golden -sensitive -continuousassignment Bidirectional -nokeep_unreach -nosupply
+read design /home/workshop03/simulation/synthesis/post_synth_lec/counter_netlist.v -Verilog -Revised -sensitive -continuousassignment Bidirectional -nokeep_unreach -nosupply

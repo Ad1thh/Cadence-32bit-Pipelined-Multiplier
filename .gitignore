@@ -1,0 +1,43 @@
+# ====================================================================
+# Gitignore configuration for Cadence and Vivado Projects
+# ====================================================================
+
+# Cadence Xcelium/NC-Verilog simulator databases and outputs
+**/INCA_libs/
+**/xcelium.d/
+**/cov_work/
+**/.simvision/
+**/waves.shm/
+**/ncsim.shm/
+**/.cadence/
+**/.nclaunch.dd
+**/.rs_workshop03.tstamp
+
+# Vivado project caches and build folders
+**/*.cache/
+**/*.hw/
+**/*.ip_user_files/
+**/*.runs/
+**/*.sim/
+**/*.tmp/
+
+# Tool log files and run traces
+**/*.log
+**/*.logv
+**/*.log[0-9]*
+**/*.logv[0-9]*
+**/*.cmd
+**/*.cmd[0-9]*
+**/*.key
+**/*.history
+**/*.uilog
+**/*.vcd
+**/*.shm
+
+# Editor temp files
+**/*~
+**/#*#
+**/.#*
+
+# Keep TCL scripts, netlists, constraints, reports, view definition files,
+# layout databases (*.enc, *.enc.dat), and GDSII layouts (*.gds).

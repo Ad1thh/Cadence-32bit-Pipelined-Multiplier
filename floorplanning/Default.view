@@ -1,0 +1,11 @@
+# Version:1.0 MMMC View Definition File
+# Do Not Remove Above Line
+create_rc_corner -name rc_corner -cap_table {../../installs/digital/90nm/dig/captable/Captable90nm.capTbl} -preRoute_res {1.0} -preRoute_cap {1.0} -preRoute_clkres {0.0} -preRoute_clkcap {0.0} -postRoute_res {1.0} -postRoute_cap {1.0} -postRoute_xcap {1.0} -postRoute_clkres {0.0} -postRoute_clkcap {0.0} -qx_tech_file {../../installs/digital/90nm/dig/qrc/gpdk090_9l.tch}
+create_library_set -name max_timing -timing {../../installs/digital/90nm/dig/lib/slow.lib}
+create_library_set -name min_timing -timing {../../installs/digital/90nm/dig/lib/fast.lib}
+create_constraint_mode -name constraints -sdc_files {output_constraints.sdc}
+create_delay_corner -name max_delay -library_set {max_timing} -rc_corner {rc_corner}
+create_delay_corner -name min_delay -library_set {min_timing} -rc_corner {rc_corner}
+create_analysis_view -name worst_case -constraint_mode {constraints} -delay_corner {max_delay}
+create_analysis_view -name best_case -constraint_mode {constraints} -delay_corner {min_delay}
+set_analysis_view -setup {worst_case} -hold {best_case}

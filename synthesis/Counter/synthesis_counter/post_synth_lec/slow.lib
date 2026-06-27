@@ -1,0 +1,57 @@
+library(slow) {
+
+delay_model : table_lookup;
+in_place_swap_mode : match_footprint;
+
+/* unit attributes */
+time unit : "Ins";
+voltage_unit : "1V";
+current_unit : "luA";
+pulling_resistance_unit : "1kohn";
+leakage power unit : "Inw";
+capacitive load unit (1,pf);
+
+nom_process : 1;
+nom_voltage : 0.9;
+nom temperature : 125;
+operating_conditions ( slow ) {
+process : 1;
+voltage : 0.9;
+temperature : 125;
+
+default_operating_conditions : slow;
+-
+
+* Design : DFFHOX1 *
+
+cell (DFFHOX1) {
+cell footprint : DFFHQ;
+area : 16.651800;
+cell leakage power : 112.294;
+ff (N30,OBINT 2) {
+next state : "D";
+clocked on : "CK';
+
+pin(CK) {
+direction : imput;
+capacitance : 0.00168686;
+rise capacitance : 0.00168664;
+fall capacitance : 0.00168686;
+rise_capacitance_range ( 0.00158064, 0.60179264) ;
+fall_capacitance_range ( 0.00168669, 0.60168703) ;
+clock : true;
+internal_power() {
+rise_power(passive_energy_template 6x1) {
+index 1 (*0.06, 0.24, 0.48, 0.9, 1.2, 1.8");
+values (*0.0052, 0.005535, 0.006118, 0.007354, 0.008341, 0.010404");
+
+fall_power(passive_energy_template_6x1) {
+index 1 (*0.06, 0.24, 0.48, 0.9, 1.2, 1.8");
+values (*0.010891, 0.011099, 0.011634, 0.012806, 0.013742, 0.015795*);
+
+timing() {
+related pin : *CK";
+timing_type : min_pulse_width;
+rise constraint(width template_6x1) {
+index 1 (*0.06, 0.24, 0.48, 0.9, 1.2, 1.8");
+values (*0.312478, 0.361096, 0.400886, 0.442258, 0.46182, 0.487859");
