@@ -1,6 +1,6 @@
 # Cadence RTL-to-GDSII ASIC Design Flow: 32-Bit Pipelined Multiplier
 
-This repository documents the end-to-end **RTL-to-GDSII ASIC Design Flow** of a **32-Bit Pipelined Multiplier**, alongside minor training designs (Multiplexers, FSMs, counters, and FPGA projects) completed during the internship. 
+This repository documents the end-to-end **RTL-to-GDSII ASIC Design Flow** of a **32-Bit Pipelined Multiplier**, alongside minor training designs (Multiplexers, FSMs, counters, and FPGA projects) completed during the **ASIC & FPGA SoC Design Internship**. 
 
 The primary design is a high-performance **3-Stage Pipelined 32-bit Multiplier** implemented in Verilog, synthesized using **Cadence Genus**, and physically implemented (Placed & Routed) using **Cadence Innovus** targeting the **GPDK 90nm (Generic Process Design Kit)** technology node.
 
@@ -181,4 +181,4 @@ This repository also contains early training designs:
 * **Day 4**: Design and synthesis of an 8-bit Up/Down Counter.
 
 ---
-*Created by [Ad1thh](https://github.com/Ad1thh) as part of an Internship Cadence Design Project.*
+*Created by [Ad1thh](https://github.com/Ad1thh) as part of the ASIC & FPGA SoC Design Internship.*
