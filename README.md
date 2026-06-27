@@ -138,6 +138,13 @@ Physical implementation was performed in **Cadence Innovus** using Multi-Mode Mu
 7. **Physical Verification**: Verified DRC, geometry, and connectivity to ensure signoff compliance.
 8. **Stream Out**: Exported the final layouts as a GDSII file (`mul32_pipeline_final.gds`) for manufacturing.
 
+### 🖼️ Physical Layout Visualization
+Below is the rendered layout of the 32-Bit Pipelined Multiplier generated from the final signoff GDSII stream-out (`mul32_pipeline_final.gds`):
+
+<p align="center">
+  <img src="layout_render.png" width="600" alt="32-Bit Pipelined Multiplier Physical Layout Render">
+</p>
+
 ---
 
 ## 🛠️ How to Run the Tool Flow
