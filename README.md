@@ -147,6 +147,55 @@ Below is the rendered layout of the 32-Bit Pipelined Multiplier generated from t
 
 ---
 
+## 📋 ASIC Implementation Summary (TinyTapeout Style)
+
+Here is a summary of the physical implementation metrics and signoff validation results, structured similarly to a **TinyTapeout** run page.
+
+### 📐 Routing & Placement Stats
+| Parameter | Value |
+|:---|:---|
+| **Placement Density (Utilization)** | 86.58% (std cells only) / 87.19% (including fixed cells) |
+| **Total Wire Length** | 84,493 $\mu m$ (84.49 mm) |
+
+#### Layer-by-Layer Routing Breakdown
+| Layer | Wire Length ($\mu m$) | Percentage |
+|:---|:---|:---|
+| **Metal1** | 2,031 $\mu m$ | 2.40% |
+| **Metal2** | 31,485 $\mu m$ | 37.26% |
+| **Metal3** | 32,595 $\mu m$ | 38.58% |
+| **Metal4** | 13,154 $\mu m$ | 15.57% |
+| **Metal5** | 5,086 $\mu m$ | 6.02% |
+| **Metal6** | 141 $\mu m$ | 0.17% |
+| **Metal7** | 1 $\mu m$ | < 0.01% |
+| **Metal8** | 0 $\mu m$ | 0.00% |
+| **Metal9** | 0 $\mu m$ | 0.00% |
+
+### 🎛️ Cell Usage by Category
+| Category | Cells / Gate Type Examples | Count |
+|:---|:---|:---|
+| **Sequential** | Flip-Flops (DFFRHQX1, DFFRX1) | 324 |
+| **Inverters** | CLKINVX1-8, INVX1-12, INVXL | 375 |
+| **Basic Adders** | Half Adders, Full Adders (ADDFX1, ADDFXL, ADDHXL) | 395 |
+| **NAND / NOR** | NAND2, NAND3, NAND4, NOR2, NOR3, NOR4 | 1,180 |
+| **AOI / OAI** | AOI21, AOI22, OAI21, OAI22, etc. | 1,595 |
+| **AND / OR / Mux / Other** | AND2, AND4, OR2, MXI2XL, etc. | 485 |
+| **Logical Cells** | Total cells from RTL synthesis | **4,354** |
+| **Physical Cells** | Decap, Tap cells, Fill cells, Tie cells added during P&R | **2,442** |
+| **Placed Cells** | **Total placed instances inside the core** | **6,796** |
+
+### 🏁 Signoff Verification Results (Precheck)
+| Check | Tool / Scope | Result |
+|:---|:---|:---|
+| **Design Rule Check (DRC)** | Cadence Innovus `verify_drc` |  Passed (Clean metal/via spacing) |
+| **Geometry Check** | Cadence Innovus `verify_geometry` |  Passed (No overlap/boundary violations) |
+| **Connectivity Check** | Cadence Innovus `verify_connectivity` |  Passed (All signal & power nets fully connected) |
+| **Setup Timing (Worst Case)** | Genus / Innovus MMMC Setup (slow.lib) |  Passed (Slack: +1.0 ps at 250 MHz) |
+| **Hold Timing (Best Case)** | Innovus MMMC Hold (fast.lib) |  Passed (Slack: MET) |
+| **Logical Equivalence (LVS)** | Cadence LEC (Logical Equivalence Checker) |  Passed (Netlist matches RTL) |
+| **Verilog Syntax Check** | Genus compilation |  Passed (No syntax/lint errors) |
+
+---
+
 ## 🛠️ How to Run the Tool Flow
 
 ### 1. Verification & Simulation (Cadence Xcelium/NC-Verilog)
